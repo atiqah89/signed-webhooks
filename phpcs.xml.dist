@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruleset name="Signed Webhooks">
+  <description>WordPress Coding Standards for the plugin code.</description>
+  <file>signed-webhooks.php</file>
+  <file>uninstall.php</file>
+  <file>includes</file>
+  <arg name="extensions" value="php"/>
+  <arg value="sp"/>
+  <!-- Warnings are shown but only errors fail CI. -->
+  <config name="ignore_warnings_on_exit" value="1"/>
+  <config name="minimum_wp_version" value="6.4"/>
+  <config name="testVersion" value="8.1-"/>
+  <rule ref="WordPress">
+    <!-- PSR-4-style class names in a namespace are clearer than prefixed globals. -->
+    <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+  </rule>
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array" value="signed-webhooks"/>
+    </properties>
+  </rule>
+  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+    <properties>
+      <property name="prefixes" type="array" value="signed_webhooks,SignedWebhooks"/>
+    </properties>
+  </rule>
+</ruleset>
